@@ -4,28 +4,34 @@
     <head>
         <meta charset="utf-8">
         <title>Large Assignment 2</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <nav class="navbar">
-			<button class="btn"><i class="fa fa-square"></i></button>
-			<button id="kassi" data-shape:'rectangle'>Box</button>
-			<button id="hringur" data-shape:'circle'>Circle</button>
-			<button id="lina" data-shape:'line'>Line</button>
-			<button id="clear" data-shape:'clear'>Clear</button>
-			<button id="undo">Undo</button>
-			<button id="redo">Redo</button>
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="#" id="pen" class="btn btn-secondary btn-dark" data-shape:'pen'><i class="fa fa-pencil"></i></a>
+            <a href="#" id="rectangle" class="btn btn-secondary btn-dark" data-shape:'rectangle'><i class="fa fa-stop"></i></a>
+            <a href="#" id="circle" class="btn btn-secondary btn-dark" data-shape:'circle'><i class="fa fa-circle"></i></a>
+            <!-- <a href="#" id="color" class="btn btn-secondary btn-dark" data-shape:'color'><i class="fa fa-palette"></i></a> -->
+            <a href="#" id="text" class="btn btn-secondary btn-dark" data-shape:'text'><i class="fa fa-font"></i></a>
+            <a href="#" id="undo" class="btn btn-secondary btn-dark"><i class="fa fa-undo"></i></a>
+            <a href="#" id="clear" class="btn btn-secondary btn-dark" data-shape:'clear'><i class="fa fa-refresh"></i></a>
+            <a href="#" id="redo" class="btn btn-secondary btn-dark"><i class="fa fa-repeat"></i></a>
+            <span>Color: </span><input class="jscolor" onchange="update(this.jscolor)" value="">
         </nav>
-			<canvas width="900" height="700" style="border: 2px solid black;" 					id="my-canvas">
-		</canvas><br>
-            <div class="container">
-                <canvas id="my-canvas" width="800" height="600">
-                    Not supported
-                </canvas>
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--             <script src="shapes.js" charset="utf-8"></script>
-            <script src="drawio.js" charset="utf-8"></script> -->
-            <script src="script.js" charset="utf-8" ></script>
+        <script>
+            function update(jscolor) {
+                // 'jscolor' instance can be used as a string
+                document.getElementById('myCanvas').style.backgroundColor = '#' + jscolor
+        }
+        </script>
+        <div class="canvasDiv">
+            <canvas width="500" height="500" style="border: 2px solid black;" id="myCanvas">Not supported</canvas>
+        </div>
+        <script src="https://cdnjs.clouddlare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
+        <script src="shapes.js" charset="utf-8"></script>
+        <script src="drawio.js" charset="utf-8"></script>
+        <script src="jscolor.js"></script>
     </body>
 </html>
