@@ -2,6 +2,7 @@
 function Shape(position) {
     this.position = position;
 };
+
 function clearCanvas(){
 	ctx.clearRect(0, 0, 900, 700);
 	drawio.shapes = [];
@@ -20,7 +21,7 @@ function Rectangle(position, width, height, color) {
     Shape.call(this, position);
     this.width = width;
     this.height = height;
-	//this.color = color;
+	this.color = color;
 };
 
 Rectangle.prototype = Object.create(Shape.prototype);
