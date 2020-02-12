@@ -9,14 +9,14 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a href="#" id="pen" class="btn btn-secondary btn-dark" data-shape:'pen'><i class="fa fa-pencil"></i></a>
-            <a href="#" id="rectangle" class="btn btn-secondary btn-dark" data-shape:'rectangle'><i class="fa fa-stop"></i></a>
-            <a href="#" id="circle" class="btn btn-secondary btn-dark" data-shape:'circle'><i class="fa fa-circle"></i></a>
-            <!-- <a href="#" id="color" class="btn btn-secondary btn-dark" data-shape:'color'><i class="fa fa-palette"></i></a> -->
-            <a href="#" id="text" class="btn btn-secondary btn-dark" data-shape:'text'><i class="fa fa-font"></i></a>
-            <a href="#" id="undo" class="btn btn-secondary btn-dark"><i class="fa fa-undo"></i></a>
-            <a href="#" id="clear" class="btn btn-secondary btn-dark" data-shape:'clear'><i class="fa fa-refresh"></i></a>
-            <a href="#" id="redo" class="btn btn-secondary btn-dark"><i class="fa fa-repeat"></i></a>
+            <a href="#" id="icon pen" class="btn btn-secondary btn-dark" data-shape:'pen'><i class="fa fa-pencil"></i></a>
+            <a href="#" id="icon rectangle" class="btn btn-secondary btn-dark" data-shape:'rectangle'><i class="fa fa-stop"></i></a>
+            <a href="#" id="icon circle" class="btn btn-secondary btn-dark" data-shape:'circle'><i class="fa fa-circle"></i></a>
+            <!-- <a href="#" id="icon color" class="btn btn-secondary btn-dark" data-shape:'color'><i class="fa fa-palette"></i></a> -->
+            <a href="#" id="icon text" class="btn btn-secondary btn-dark" data-shape:'text'><i class="fa fa-font"></i></a>
+            <a href="#" id="icon undo" class="btn btn-secondary btn-dark"><i class="fa fa-undo"></i></a>
+            <a href="#" id="icon clear" class="btn btn-secondary btn-dark" data-shape:'clear'><i class="fa fa-refresh"></i></a>
+            <a href="#" id="icon redo" class="btn btn-secondary btn-dark"><i class="fa fa-repeat"></i></a>
             <span>Color: </span><input class="jscolor" onchange="update(this.jscolor)" value="">
         </nav>
         <script>
@@ -28,7 +28,7 @@
         <div class="canvasDiv">
             <canvas width="500" height="500" style="border: 2px solid black;" id="my-canvas">Not supported</canvas>
         </div>
-        <script src="https://cdnjs.clouddlare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
         <script src="shapes.js" charset="utf-8"></script>
         <script src="drawio.js" charset="utf-8"></script>
         <script src="jscolor.js"></script>
