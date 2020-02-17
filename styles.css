@@ -1,6 +1,7 @@
 .container{
 	padding: 20px;
 }
+
 #my-canvas {
 	cursor: url(https://raw.githubusercontent.com/mcnitt/simple-jquery-drawing-app/master/img/cursor.png), crosshair;
     display: block;
@@ -13,7 +14,12 @@
 	height: 100px;
 	background-color: #474747;
 	border-bottom: solid 6px black;
+	padding-top: 2%;
+	padding-right: 12%;
+	margin-bottom: 2%;
+	text-align: center;
 }
+
 .icon {
 	position: relative;
 	display: inline-block;
@@ -23,13 +29,16 @@
 	left:5px;
 	transition: color .5s;
 }
+
 .icon:hover {
-color: orange;
-cursor: pointer;
+	color: orange;
+	cursor: pointer;
 }
+
 .icon.selected {
 	color:yellow;
 }
+
 .undo {
 	position: relative;
 	display: inline-block;
@@ -38,13 +47,16 @@ cursor: pointer;
 	top:15px;
 	transition: color .5s;
 }
+
 .undo:hover {
 	color: orange;
 	cursor: pointer;
 }
+
 .undo.selected {
 	color:yellow;
 }
+
 .redo {
 	position: relative;
 	display: inline-block;
@@ -53,22 +65,25 @@ cursor: pointer;
 	top: 15px;
 	transition: color .5s;
 }
+
 .redo:hover {
 	color: orange;
 	cursor: pointer;
 }
+
 .redo.selected {
 	color:yellow;
 }
 
-
+.colorChooser {
+	position: absolute;
+	display: inline-block;
+	margin-top: 1.5%;
+}
 
 span {
 	color: white;
 	font-weight: bold;
-	margin: 2px;
-}
-
-.palette {
-	margin-left: 530px;
+	font-size: large;
+	margin: 15px;
 }
