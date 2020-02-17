@@ -4,7 +4,8 @@ window.drawio = {
 	unDoneShape: [],
     selectedShape: 'rectangle',
 	//color: "Black"
-	//LineWeight: TODO
+    //LineWeight: TODO
+    colorPick: document.getElementById('colorPicker'),
     canvas: document.getElementById('my-canvas'),
     ctx: document.getElementById('my-canvas').getContext('2d'),
     selectedElement: null,
@@ -14,7 +15,7 @@ window.drawio = {
         LINE: 'line',
         PEN: 'pen',
         TEXT: 'text'
-  }
+}
 };
 $(function () {
 //all objects drawn
@@ -27,7 +28,7 @@ $(function () {
             drawio.shapes[i].render();
         }
     };
-  
+
     $('.icon').on('click', function () {
         $('.icon').removeClass('selected');
         $(this).addClass('selected');
@@ -65,13 +66,13 @@ $(function () {
             drawCanvas();
         }
     });
-  
+
     $('#my-canvas').on('mouseup', function (mouseEvent) {
         drawio.shapes.push(drawio.selectedElement);
         console.log(drawio.shapes);
         drawio.selectedElement = null;
     });
-  
+
        //undo
     $('.undo').on('click', function () {
         if (drawio.shapes.length > 0) {
@@ -81,7 +82,7 @@ $(function () {
             alert("Nothing to undo");
         }
     });
-  
+
       //redo
     $('.redo').on('click', function () {
         if (drawio.unDoneShapes.length > 0) {

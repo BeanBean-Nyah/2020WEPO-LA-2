@@ -3,11 +3,6 @@ function Shape(position) {
     this.position = position;
 };
 
-function clearCanvas(){
-	ctx.clearRect(0, 0, 900, 700);
-	drawio.shapes = [];
-}
-
 Shape.prototype.render = function () {};
 
 Shape.prototype.move = function (position) {
@@ -29,7 +24,11 @@ Rectangle.prototype.constructor = Rectangle;
 
 Rectangle.prototype.render = function () {
     //drawio.ctx.fillStyle = this.color;
-    drawio.ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    drawio.ctx.beginPath();
+    drawio.ctx.rect(this.position.x, this.position.y, this.width, this.height);
+    drawio.ctx.stroke();
+    drawio.ctx.strokeStyle=this.color;
+    drawio.ctx.closePath();
 };
 
 Rectangle.prototype.resize = function(x, y) {
