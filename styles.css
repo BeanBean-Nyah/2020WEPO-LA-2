@@ -45,6 +45,21 @@ cursor: pointer;
 .undo.selected {
 	color:yellow;
 }
+.save {
+	position: relative;
+	display: inline-block;
+	font-size: 2em;
+	width: 100px;
+	top: 15px;
+	transition: color .5s;
+}
+.save:hover {
+	color: orange;
+	cursor: pointer;
+}
+.save.selected {
+	color:yellow;
+}
 .redo {
 	position: relative;
 	display: inline-block;
@@ -58,6 +73,21 @@ cursor: pointer;
 	cursor: pointer;
 }
 .redo.selected {
+	color:yellow;
+}
+.load {
+	position: relative;
+	display: inline-block;
+	font-size: 2em;
+	width: 100px;
+	top: 15px;
+	transition: color .5s;
+}
+.load:hover {
+	color: orange;
+	cursor: pointer;
+}
+.load.selected {
 	color:yellow;
 }
 

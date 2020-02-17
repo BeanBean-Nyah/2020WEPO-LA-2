@@ -29,7 +29,10 @@ Rectangle.prototype.render = function () {
     drawio.ctx.stroke();
     drawio.ctx.strokeStyle=this.color;
     drawio.ctx.closePath();
+
+
 };
+
 
 Rectangle.prototype.resize = function(x, y) {
     this.width = x - this.position.x;
@@ -50,8 +53,9 @@ Circle.prototype.constructor = Circle;
 Circle.prototype.render = function() {
     drawio.ctx.beginPath();
     drawio.ctx.arc(this.position.x, this.position.y, Math.sqrt(this.width * this.width), 0, 2 * Math.PI);
-    drawio.ctx.fillStyle = this.color;
-    drawio.ctx.fill();
+    drawio.ctx.stroke();
+    drawio.ctx.strokeStyle=this.color;
+    drawio.ctx.closePath();
 };
 
 Circle.prototype.resize = function(x, y) {

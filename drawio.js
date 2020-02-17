@@ -1,7 +1,7 @@
 
 window.drawio = {
     shapes: [],
-	unDoneShape: [],
+	unDoneShapes: [],
     selectedShape: 'rectangle',
 	//color: "Black"
     //LineWeight: TODO
@@ -33,6 +33,30 @@ $(function () {
         $('.icon').removeClass('selected');
         $(this).addClass('selected');
         drawio.selectedShape = $(this).data('shape');
+    });
+    $('.save').on('click',function () {
+        var nameOfTemplate = prompt('Name of template to save: ');
+        localStorage.setItem(nameOfTemplate,JSON.stringify(drawio.shapes));
+        console.log(drawio.shapes)
+        
+    });
+    $('.load').on('click',function () {
+        var loadTemplateName = prompt('Name of template to load: ');
+        var lines = JSON.parse(localStorage.getItem(loadTemplateName));
+        if(lines == null){
+            alert('Sorry! File does not exist!');
+        }else{
+            drawio.ctx.clearRect(0, 0, drawio.canvas.width, drawio.canvas.height);
+        console.log(lines)
+        lines.forEach(function () {
+            drawio.ctx.beginPath();
+            drawio.ctx.strokeStyle = this.colorPick;
+            drawio.ctx.moveTo(this.x1,this.y1);
+            console.log(this.x1)
+            console.log(this.y1)
+            drawio.ctx.lineTo(this.x2,this.y2);
+            drawio.ctx.stroke();
+        })};
     });
 
     $('#my-canvas').on('mousedown', function (mouseEvent) {
@@ -93,4 +117,3 @@ $(function () {
         }
     });
 });
-  
