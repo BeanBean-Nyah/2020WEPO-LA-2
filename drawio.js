@@ -3,7 +3,7 @@ window.drawio = {
     shapes: [],
 	unDoneShapes: [],
     selectedShape: 'pen',
-    //LineWeight: TODO
+    lineWidth: document.getElementById("drawing-line-width"),
     colorPick: document.getElementById('colorPicker'),
     canvas: document.getElementById('my-canvas'),
     ctx: document.getElementById('my-canvas').getContext('2d'),
@@ -56,12 +56,20 @@ $(function () {
             // Recreate all elements within localStorage and insert into shapes array
             lines.forEach(line => {
                switch (line.type) {
-                   case 'Circle': drawio.shapes.push(new Circle());
+                   case 'Circle': drawio.shapes.push(new Circle(line.position,line.width,line.height,line.color,line.lineWeight));
+                   break;
+                   case 'Rectangle': drawio.shapes.push(new Rectangle(line.position,line.width,line.height,line.color,line.lineWeight));
+                   break;
+                   case 'Line': drawio.shapes.push(new Line(line.position,line.width,line.height,line.color,line.lineWeight));
+                   break;
+                   case 'Pen': drawio.shapes.push(new Pen(line.position,line.width,line.height,line.color,line.lineWeight));
+                   break; //check the pen. Everything else is working
+                   case 'Text': drawio.shapes.push(new Text(line.position,line.text,8,line.color));
+                   break;
                }
             });
-
             drawCanvas();
-        };
+        }
     });
 
     $('#my-canvas').on('mousedown', function (mouseEvent) {
