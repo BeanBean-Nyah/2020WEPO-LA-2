@@ -16,7 +16,7 @@ function Rectangle(position, width, height, color) {
     Shape.call(this, position);
     this.width = width;
     this.height = height;
-	this.color = color;
+	  this.color = color;
 };
 
 Rectangle.prototype = Object.create(Shape.prototype);
@@ -29,10 +29,7 @@ Rectangle.prototype.render = function () {
     drawio.ctx.stroke();
     drawio.ctx.strokeStyle=this.color;
     drawio.ctx.closePath();
-
-
 };
-
 
 Rectangle.prototype.resize = function(x, y) {
     this.width = x - this.position.x;
@@ -121,4 +118,25 @@ Pen.prototype.resize = function(x, y) {
     this.yPoint.push(y);
 };
 
+//Text
+function Text(position, text, fontSize, color) {
+    Shape.call(this, position);
+    this.text = text;
+    this.fontSize = fontSize * 8;
+    this.color = color;
+};
+
+Text.prototype = Object.create(Shape.prototype);
+Text.prototype.constructor = Text;
+
+Text.prototype.render = function() {
+    var x = this.fontSize + 'px Georgia';
+    drawio.ctx.fillStyle = this.color;
+    drawio.ctx.font = x;
+    drawio.ctx.fillText(this.text, this.position.x, this.position.y);
+};
+
+Text.prototype.resize = function(x, y) {
+    //this.width = x - this.position.x;
+};
 //https://codepen.io/saradogg95/collab/rNVOwmm?editors=0010#0
