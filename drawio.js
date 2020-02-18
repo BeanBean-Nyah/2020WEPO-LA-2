@@ -3,7 +3,6 @@ window.drawio = {
     shapes: [],
 	unDoneShapes: [],
     selectedShape: 'rectangle',
-	//color: "Black"
     //LineWeight: TODO
     colorPick: document.getElementById('colorPicker'),
     canvas: document.getElementById('my-canvas'),
@@ -15,10 +14,10 @@ window.drawio = {
         LINE: 'line',
         PEN: 'pen',
         TEXT: 'text'
-}
+    }
 };
 $(function () {
-//all objects drawn
+    //all objects drawn
     function drawCanvas() {
         drawio.ctx.clearRect(0, 0, drawio.canvas.width, drawio.canvas.height);
         if (drawio.selectedElement) {
@@ -28,12 +27,13 @@ $(function () {
             drawio.shapes[i].render();
         }
     };
-
+    //selecting tool
     $('.icon').on('click', function () {
         $('.icon').removeClass('selected');
         $(this).addClass('selected');
         drawio.selectedShape = $(this).data('shape');
     });
+
     $('.save').on('click',function () {
         var nameOfTemplate = prompt('Name of template to save: ');
         const shapesToSave = drawio.shapes.map(s => ({
@@ -67,19 +67,19 @@ $(function () {
         // color = '#' + jscolor;
         switch (drawio.selectedShape) {
         case drawio.availableShapes.RECTANGLE:
-            drawio.selectedElement = new Rectangle({ x: mouseEvent.offsetX, y: mouseEvent.offsetY }, 0, 0);
+            drawio.selectedElement = new Rectangle({ x: mouseEvent.offsetX, y: mouseEvent.offsetY }, 0, 0, drawio.colorPick.value);
             break;
         case drawio.availableShapes.CIRCLE:
-            drawio.selectedElement = new Circle({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0);
+            drawio.selectedElement = new Circle({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
             break;
         case drawio.availableShapes.LINE:
-            drawio.selectedElement = new Line({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0);
+            drawio.selectedElement = new Line({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
             break;
         case drawio.availableShapes.PEN:
-            drawio.selectedElement = new Pen({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0);
+            drawio.selectedElement = new Pen({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
             break;
         case drawio.availableShapes.TEXT:
-            drawio.selectedElement = new Text({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, prompt("Enter your text."));
+            drawio.selectedElement = new Text({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, prompt("Enter your text."), 8 , drawio.colorPick.value);
             drawio.shapes.push(drawio.selectedElement);
             drawio.selectedElement = null;
             drawCanvas();
