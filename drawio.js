@@ -36,8 +36,11 @@ $(function () {
     });
     $('.save').on('click',function () {
         var nameOfTemplate = prompt('Name of template to save: ');
-        localStorage.setItem(nameOfTemplate,JSON.stringify(drawio.shapes));
-        console.log(drawio.shapes)
+        const shapesToSave = drawio.shapes.map(s => ({
+            ...s,
+            type: s.constructor.name,
+        }));
+        localStorage.setItem(nameOfTemplate,JSON.stringify(shapesToSave));
         
     });
     $('.load').on('click',function () {
@@ -46,17 +49,18 @@ $(function () {
         if(lines == null){
             alert('Sorry! File does not exist!');
         }else{
-            drawio.ctx.clearRect(0, 0, drawio.canvas.width, drawio.canvas.height);
-        console.log(lines)
-        lines.forEach(function () {
-            drawio.ctx.beginPath();
-            drawio.ctx.strokeStyle = this.colorPick;
-            drawio.ctx.moveTo(this.x1,this.y1);
-            console.log(this.x1)
-            console.log(this.y1)
-            drawio.ctx.lineTo(this.x2,this.y2);
-            drawio.ctx.stroke();
-        })};
+            drawio.shapes = [];
+            drawio.selectedElement = null;
+
+            // Recreate all elements within localStorage and insert into shapes array
+            lines.forEach(line => {
+               switch (line.type) {
+                   case 'Circle': drawio.shapes.push(new Circle());
+               }
+            });
+
+            drawCanvas();
+        };
     });
 
     $('#my-canvas').on('mousedown', function (mouseEvent) {
