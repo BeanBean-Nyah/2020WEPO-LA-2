@@ -2,7 +2,7 @@
 window.drawio = {
     shapes: [],
 	unDoneShapes: [],
-    selectedShape: 'rectangle',
+    selectedShape: 'pen',
     //LineWeight: TODO
     colorPick: document.getElementById('colorPicker'),
     canvas: document.getElementById('my-canvas'),
