@@ -16,6 +16,7 @@ window.drawio = {
         TEXT: 'text'
     }
 };
+
 $(function () {
     //all objects drawn
     function drawCanvas() {
@@ -64,26 +65,25 @@ $(function () {
     });
 
     $('#my-canvas').on('mousedown', function (mouseEvent) {
-        // color = '#' + jscolor;
         switch (drawio.selectedShape) {
-        case drawio.availableShapes.RECTANGLE:
-            drawio.selectedElement = new Rectangle({ x: mouseEvent.offsetX, y: mouseEvent.offsetY }, 0, 0, drawio.colorPick.value);
-            break;
-        case drawio.availableShapes.CIRCLE:
-            drawio.selectedElement = new Circle({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
-            break;
-        case drawio.availableShapes.LINE:
-            drawio.selectedElement = new Line({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
-            break;
-        case drawio.availableShapes.PEN:
-            drawio.selectedElement = new Pen({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value);
-            break;
-        case drawio.availableShapes.TEXT:
-            drawio.selectedElement = new Text({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, prompt("Enter your text."), 8 , drawio.colorPick.value);
-            drawio.shapes.push(drawio.selectedElement);
-            drawio.selectedElement = null;
-            drawCanvas();
-            break;
+            case drawio.availableShapes.RECTANGLE:
+                drawio.selectedElement = new Rectangle({ x: mouseEvent.offsetX, y: mouseEvent.offsetY }, 0, 0, drawio.colorPick.value, drawio.lineWidth.value);
+                break;
+            case drawio.availableShapes.CIRCLE:
+                drawio.selectedElement = new Circle({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value, drawio.lineWidth.value);
+                break;
+            case drawio.availableShapes.LINE:
+                drawio.selectedElement = new Line({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value, drawio.lineWidth.value);
+                break;
+            case drawio.availableShapes.PEN:
+                drawio.selectedElement = new Pen({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, 0, 0, drawio.colorPick.value, drawio.lineWidth.value);
+                break;
+            case drawio.availableShapes.TEXT:
+                drawio.selectedElement = new Text({x: mouseEvent.offsetX, y: mouseEvent.offsetY}, prompt("Enter your text."), 8 , drawio.colorPick.value);
+                drawio.shapes.push(drawio.selectedElement);
+                drawio.selectedElement = null;
+                drawCanvas();
+                break;
         }
     });
 
@@ -120,4 +120,12 @@ $(function () {
             alert("Nothing to redo");
         }
     });
+
+    var lineWidthRange = document.getElementById("drawing-line-width");
+    var lineWidthOutput = document.getElementById("lineWidthInfo");
+    lineWidthOutput.innerHTML = lineWidthRange.value;
+    lineWidthRange.oninput = function() {
+        lineWidthOutput.innerHTML = this.value;
+    }
 });
+

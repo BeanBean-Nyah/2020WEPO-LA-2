@@ -15,7 +15,7 @@
 	background-color: #474747;
 	border-bottom: solid 6px black;
 	padding-top: 2%;
-	padding-right: 12%;
+	padding-right: 20%;
 	margin-bottom: 2%;
 	text-align: center;
 }
@@ -108,16 +108,35 @@
 .colorChooser {
 	position: absolute;
 	display: inline-block;
-	margin-top: 1.5%;
+	margin-top: 1.7%;
 }
 
-span {
+label {
 	color: white;
-	font-weight: bold;
+	font-weight: normal;
 	font-size: large;
 	margin: 15px;
 }
 
-.palette {
-	margin-left: 530px;
+.info {
+	margin-right: 5px;
+	color: white;
+	font-weight: normal;
+	font-size: large;
+}
+
+input[type=range] {
+	position: absolute;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+span {
+	color: white;
+	font-weight: normal;
+	font-size: large;
+}
+
+.lineWidthDiv {
+	margin-bottom: 5px;
 }
