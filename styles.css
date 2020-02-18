@@ -15,7 +15,7 @@
 	background-color: #474747;
 	border-bottom: solid 6px black;
 	padding-top: 2%;
-	padding-right: 12%;
+	padding-right: 20%;
 	margin-bottom: 2%;
 	text-align: center;
 }
@@ -108,7 +108,7 @@
 .colorChooser {
 	position: absolute;
 	display: inline-block;
-	margin-top: 1.5%;
+	margin-top: 1.7%;
 }
 
 span {
@@ -118,6 +118,3 @@ span {
 	margin: 15px;
 }
 
-.palette {
-	margin-left: 530px;
-}
