@@ -4,29 +4,34 @@
     <head>
         <meta charset="utf-8">
         <title>Large Assignment 2</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="la-color-picker-master\la_color_picker.css">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <nav class="navbar">
+            <div class="lineWidthDiv">
+                <label for="drawing-line-width">Line width:</label>
+                <span id="lineWidthInfo"></span>
+                <input type="range" value="1" min="1" max="100" id="drawing-line-width" class="lineWidth">
+            </div>
             <div class="icon selected" data-shape ="rectangle">
-                <i class="fa fa-stop" aria-hidden="true"></i>
+                <i class="far fa-stop" aria-hidden="true"></i>
             </div>
             <div class="icon" data-shape ="circle">
-                <i class="fa fa-circle" aria-hidden="true"></i>
+                <i class="far fa-circle" aria-hidden="true"></i>
             </div>
             <div class="icon" data-shape ="text">
                 <i class="fa fa-font" aria-hidden="true"></i>
             </div>
             <div class="icon" data-shape ="pen">
-                <i class="fa fa-paint-brush" aria-hidden="true"></i>
-            </div>
-            <div class="icon" data-shape ="line">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </div>
+            <div class="icon" data-shape ="line">
+                <i class="fa fa-slash fa-flip-horizontal" aria-hidden="true"></i>
+            </div>
             <div class="redo" data-shape="redo">
-                <i class="fa fa-repeat" aria-hidden="true"></i>
+                <i class="fa fa-redo" aria-hidden="true"></i>
             </div>
             <div class="undo" data-shape="undo">
                 <i class="fa fa-undo" aria-hidden="true"></i>
@@ -38,7 +43,8 @@
                 <i class="fa fa-folder" aria-hidden="true"></i>
             </div>
             <div class="colorChooser">
-                <span>Color: </span><input type="text" class="inp" id="colorPicker"></input>
+                <label for="colorPicker">Color:</label>
+                <input type="text" class="inp" id="colorPicker"></input>
                 <div class="palette" id="colorPalette"></div>
             </div>
         </nav>

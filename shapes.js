@@ -12,11 +12,12 @@ Shape.prototype.move = function (position) {
 Shape.prototype.resize = function () {};
 
 //Rectangle
-function Rectangle(position, width, height, color) {
+function Rectangle(position, width, height, color, lineWeight) {
     Shape.call(this, position);
     this.width = width;
     this.height = height;
-	  this.color = color;
+    this.color = color;
+    this.lineWeight = lineWeight;
 };
 
 Rectangle.prototype = Object.create(Shape.prototype);
@@ -29,6 +30,7 @@ Rectangle.prototype.render = function () {
     drawio.ctx.stroke();
     drawio.ctx.strokeStyle=this.color;
     drawio.ctx.closePath();
+    drawio.ctx.lineWidth = this.lineWeight;
 };
 
 Rectangle.prototype.resize = function(x, y) {
@@ -37,11 +39,12 @@ Rectangle.prototype.resize = function(x, y) {
 };
 
 //Circle
-function Circle(position, width, height, color) {
+function Circle(position, width, height, color, lineWeight) {
     Shape.call(this, position);
     this.width = width;
     this.height = height;
     this.color = color;
+    this.lineWeight = lineWeight;
 };
 
 Circle.prototype = Object.create(Shape.prototype);
@@ -51,8 +54,9 @@ Circle.prototype.render = function() {
     drawio.ctx.beginPath();
     drawio.ctx.arc(this.position.x, this.position.y, Math.sqrt(this.width * this.width), 0, 2 * Math.PI);
     drawio.ctx.stroke();
-    drawio.ctx.strokeStyle=this.color;
+    drawio.ctx.strokeStyle = this.color;
     drawio.ctx.closePath();
+    drawio.ctx.lineWidth = this.lineWeight;
 };
 
 Circle.prototype.resize = function(x, y) {
@@ -139,4 +143,3 @@ Text.prototype.render = function() {
 Text.prototype.resize = function(x, y) {
     //this.width = x - this.position.x;
 };
-//https://codepen.io/saradogg95/collab/rNVOwmm?editors=0010#0
